@@ -7,11 +7,9 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'FETCH_NOTES':
-      console.warn(1);
       return {
         ...state,
         status: 'loading',
-        data: null,
         error: null,
       };
 
