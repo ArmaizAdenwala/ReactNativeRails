@@ -28,6 +28,28 @@ export default (state = INITIAL_STATE, action) => {
         error: action.error,
       };
 
+    case 'CREATE_NOTE':
+      return {
+        ...state,
+        createStatus: 'loading',
+        createError: null,
+      };
+
+    case 'CREATE_NOTE_SUCCESS':
+      return {
+        ...state,
+        createStatus: 'success',
+        data: [...state.data, action.data],
+        createError: null,
+      };
+
+    case 'CREATE_NOTE_FAILURE':
+      return {
+        ...state,
+        createStatus: 'failure',
+        createError: action.error,
+      };
+
     default:
       return state;
   }
