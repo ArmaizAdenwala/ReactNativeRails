@@ -1,5 +1,5 @@
-import note from './note';
+import notes from './notes';
 
 export default {
-  note,
+  notes,
 };

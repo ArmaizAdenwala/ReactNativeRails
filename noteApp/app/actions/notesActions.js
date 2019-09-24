@@ -1,4 +1,4 @@
-import * as types from '../actionTypes/note';
+import * as types from '../actionTypes/notes';
 
 export function fetchNotes() {
   return dispatch => {
