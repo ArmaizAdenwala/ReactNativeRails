@@ -10,9 +10,13 @@ export default class Home extends Component {
     return <Text>{note.text}</Text>;
   }
   _renderNotes() {
-    return (
-      <View>{this.props.notes.data.map(note => this._renderNote(note))}</View>
-    );
+    const {data, status} = this.props.notes;
+    if (status === 'failure') {
+      return <Text>{'Error'}</Text>;
+    } else if (status == 'loading') {
+      return <Text>{'Loading'}</Text>;
+    }
+    return <View>{data.map(note => this._renderNote(note))}</View>;
   }
 
   render() {
