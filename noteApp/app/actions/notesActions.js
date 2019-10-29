@@ -20,7 +20,6 @@ export function createNote(note) {
   return async dispatch => {
     dispatch({type: types.CREATE_NOTE});
     try {
-      console.warn(JSON.stringify({note}));
       let response = await fetch('http://localhost:5000/notes', {
         method: 'POST',
         headers: {

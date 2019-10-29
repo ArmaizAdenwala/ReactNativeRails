@@ -41,6 +41,8 @@ export default class Home extends Component {
     return <View>{data.map(note => this._renderNote(note))}</View>;
   }
 
+  _createNotePress = () => this._createNote();
+
   _renderCreateForm() {
     return (
       <View>
@@ -50,7 +52,7 @@ export default class Home extends Component {
           onChangeText={text => this.setState({text})}
           value={this.state.text}
         />
-        <Button title="Create" onPress={() => this._createNote()} />
+        <Button title="Create" onPress={this._createNotePress} />
       </View>
     );
   }
