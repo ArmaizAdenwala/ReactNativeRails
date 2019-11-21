@@ -20,12 +20,12 @@ export default class Home extends Component {
     this.props.actions.fetchNotes();
   }
 
-  _createNote() {
+  _createNote = () => {
     const {text} = this.state;
     const note = {text};
     this.props.actions.createNote(note);
     this.setState({text: ''});
-  }
+  };
 
   _renderNote(note) {
     return <Text>{note.text}</Text>;
@@ -41,8 +41,6 @@ export default class Home extends Component {
     return <View>{data.map(note => this._renderNote(note))}</View>;
   }
 
-  _createNotePress = () => this._createNote();
-
   _renderCreateForm() {
     return (
       <View>
@@ -52,7 +50,7 @@ export default class Home extends Component {
           onChangeText={text => this.setState({text})}
           value={this.state.text}
         />
-        <Button title="Create" onPress={this._createNotePress} />
+        <Button title="Create" onPress={this._createNote} />
       </View>
     );
   }
